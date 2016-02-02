@@ -32,7 +32,7 @@
     "coverall": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
-      "express,middleware,mw,queue,limit,delay,simultaneous"
+    "express,middleware,mw,queue,limit,delay,simultaneous"
   ],
   "author": "Alexander <alykoshin@gmail.com>",
   "license": "MIT",
@@ -45,6 +45,8 @@
   },
   "homepage": "https://github.com/alykoshin/express-queue",
   "dependencies": {
+    "debug": "^2.2.0",
+    "express-end": "0.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.1",

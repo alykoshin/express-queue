@@ -24,6 +24,17 @@ npm install --save express-queue
 
 ## Usage
 
+```js
+var express = require('express');
+var queue = require('express-queue');
+var app = express();
+
+// Using queue middleware
+app.use(queue({ activeLimit: 2 }));
+// May be also:
+// app.get('/api', queue({ activeLimit: 2 })
+```
+
 
 ## Credits
 [Alexander](https://github.com/alykoshin/)

@@ -13,8 +13,11 @@ var httpPort = 8080;
 
 var app = express();
 
-//
+
+// Using queue middleware
 app.use(queue({ activeLimit: 2 }));
+// May be also:
+// app.get('/test1', queue({ activeLimit: 2 })
 
 
 var RESPONSE_DELAY = 1000; // Milliseconds

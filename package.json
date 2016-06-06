@@ -47,13 +47,13 @@
   "dependencies": {
     "debug": "^2.2.0",
     "express-end": "0.0.8",
-    "mini-queue": "0.0.3"
+    "mini-queue": "0.0.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-things": "^0.2.0",
     "coveralls": "^2.11.9",
-    "eslint": "^2.10.2",
+    "eslint": "^2.11.1",
     "istanbul": "^0.4.3",
     "jshint": "^2.9.2",
     "jsinspect": "^0.8.0",

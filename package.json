@@ -47,18 +47,18 @@
   "dependencies": {
     "debug": "^2.2.0",
     "express-end": "0.0.8",
-    "mini-queue": "0.0.5"
+    "mini-queue": "0.0.8"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-things": "^0.2.0",
-    "coveralls": "^2.11.9",
-    "eslint": "^2.11.1",
-    "istanbul": "^0.4.3",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.2.2",
+    "istanbul": "^0.4.4",
     "jshint": "^2.9.2",
     "jsinspect": "^0.8.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.2",
     "mockery": "^1.7.0",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.5"
   }
 }

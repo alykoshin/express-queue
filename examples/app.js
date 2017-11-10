@@ -19,7 +19,6 @@ app.use(queue({ activeLimit: 2 }));
 // May be also:
 // app.use('/test1', queue({ activeLimit: 2 }) );
 
-
 var RESPONSE_DELAY = 1000; // Milliseconds
 
 app.get('/test1', function (req, res) {

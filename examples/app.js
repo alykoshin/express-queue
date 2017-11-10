@@ -15,7 +15,7 @@ var app = express();
 
 
 // Using queue middleware
-app.use(queue({ activeLimit: 2 }));
+app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
 // May be also:
 // app.use('/test1', queue({ activeLimit: 2 }) );
 

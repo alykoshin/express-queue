@@ -4,7 +4,7 @@
   "description": "Express middleware to limit a number of simultaneously processing  requests using queue",
   "main": "./index.js",
   "engines": {
-    "node": ">=0.10"
+    "node": ">=6"
   },
   "scripts": {
     "nsp": "nsp check",

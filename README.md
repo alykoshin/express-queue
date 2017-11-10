@@ -35,6 +35,10 @@ app.use(queue({ activeLimit: 2 }));
 // app.get('/api', queue({ activeLimit: 2 })
 ```
 
+## Example
+
+Please, refer to `./examples/` directory for a working example.
+
 
 ## Credits
 [Alexander](https://github.com/alykoshin/)

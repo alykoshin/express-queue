@@ -47,7 +47,7 @@
   "dependencies": {
     "debug": "^3.1.0",
     "express-end": "0.0.8",
-    "mini-queue": "0.0.11"
+    "mini-queue": "0.0.12"
   },
   "devDependencies": {
     "chai": "^4.1.2",

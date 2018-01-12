@@ -7,6 +7,8 @@
 [![Dependency Status](https://david-dm.org/alykoshin/express-queue/status.svg)](https://david-dm.org/alykoshin/express-queue#info=dependencies)
 [![devDependency Status](https://david-dm.org/alykoshin/express-queue/dev-status.svg)](https://david-dm.org/alykoshin/express-queue#info=devDependencies)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/alykoshin/express-queue/badge.svg)](https://snyk.io/test/github/alykoshin/express-queue)
+
 
 # express-queue
 

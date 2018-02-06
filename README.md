@@ -40,6 +40,22 @@ app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
 // app.get('/api', queue({ activeLimit: 2, queuedLimit: -1})
 ```
 
+You can access MiniQueue object used internally. To get current queue length you may do following:
+
+```js
+const express = require('express');
+const expressQueue = require('../');
+const queueMw = expressQueue({ activeLimit: 2, queuedLimit: -1 });
+
+const app = express();
+app.use(queueMw);
+
+console.log(`queueLength: ${queueMw.queue.getLength()}`);
+```
+
+For more info on Queue object used refer to [npmjs.com/package/mini-queue](https://www.npmjs.com/package/mini-queue) package docs and/or [source code](https://github.com/alykoshin/mini-queue). 
+
+
 ## Example
 
 Please, refer to `./examples/` directory for a working example.

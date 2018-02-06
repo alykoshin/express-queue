@@ -1,43 +1,47 @@
 'use strict';
 
 
-var debug   = require('debug')('app');
-var express = require('express');
-var http    = require('http');
+const debug   = require('debug')('app');
+const express = require('express');
+const http    = require('http');
 
 //var queue = require('express-queue');
-var queue = require('../');
+const expressQueue = require('../');
 
-var httpPort = 8080;
+const httpPort = 8080;
 
-
-var app = express();
-
+const app = express();
 
 // Using queue middleware
-app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
+const queueMw = expressQueue({ activeLimit: 2, queuedLimit: -1 });
+app.use(queueMw);
 // May be also:
+// app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
+// - or -
 // app.use('/test1', queue({ activeLimit: 2 }) );
 
-var RESPONSE_DELAY = 1000; // Milliseconds
+const RESPONSE_DELAY = 1000; // Milliseconds
+
+let counter = 0;
 
 app.get('/test1', function (req, res) {
-  console.log('get(test1): 1');
+  let cnt = counter++; // local var inside the closure
+  console.log(`get(test1): [${cnt}/request] queueLength: ${queueMw.queue.getLength()}`);
 
-  var result = { test: 'test' };
+  const result = { test: 'test' };
 
   setTimeout(function() {
-    console.log('get(test1): 2');
+    console.log(`get(test1): [${cnt}/ready] queueLength: ${queueMw.queue.getLength()}` );
     res
       .status(200)
       .send(result);
-    console.log('get(test1): 3');
+    console.log(`get(test1): [${cnt}/sent] queueLength: ${queueMw.queue.getLength()}`);
   }, RESPONSE_DELAY);
 
 });
 
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 server.listen(httpPort, function () {
   console.log('* Server listening at ' +

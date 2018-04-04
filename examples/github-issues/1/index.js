@@ -13,7 +13,5 @@ app.use('/', routes);
 const server = http.createServer(app);
 
 server.listen(httpPort, function () {
-  console.log('* Server listening at ' +
-    server.address().address + ':' +
-    server.address().port);
+  console.log(`* Server listening at ${server.address().address}:${server.address().port}`)
 });

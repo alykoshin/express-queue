@@ -55,6 +55,15 @@ console.log(`queueLength: ${queueMw.queue.getLength()}`);
 
 For more info on Queue object used refer to [npmjs.com/package/mini-queue](https://www.npmjs.com/package/mini-queue) package docs and/or [source code](https://github.com/alykoshin/mini-queue). 
 
+## Reject handler
+
+If you set queuedLimit, when the queue is full, the middleware will reject any incoming request.
+The default handler will send a 503 status code, but you can setup your own handler with `rejectHandler` option, e.g.:
+
+```js
+  const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 5, rejectHandler: (req, res) => { res.sendStatus(200); } });
+```
+
 
 ## Example
 

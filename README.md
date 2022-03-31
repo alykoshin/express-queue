@@ -35,6 +35,7 @@ var app = express();
 app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
 // activeLimit - max request to process simultaneously
 // queuedLimit - max requests in queue until reject (-1 means do not reject)
+// rejectHandler - handler to call when queuedLimit is reached (see below) 
 //
 // May be also:
 // app.get('/api', queue({ activeLimit: 2, queuedLimit: -1})
@@ -61,7 +62,7 @@ If you set queuedLimit, when the queue is full, the middleware will reject any i
 The default handler will send a 503 status code, but you can setup your own handler with `rejectHandler` option, e.g.:
 
 ```js
-  const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 5, rejectHandler: (req, res) => { res.sendStatus(200); } });
+  const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 6, rejectHandler: (req, res) => { res.sendStatus(500); } });
 ```
 
 

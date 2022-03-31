@@ -29,7 +29,9 @@
     "patch-release": "npm test && npm run _patch-release && npm run _push",
     "minor-release": "npm test && npm run _minor-release && npm run _push",
     "__major-release": "npm test && npm run _major-release && npm run _push",
-    "coverall": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coverall": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "keywords": [
     "express,middleware,mw,queue,limit,delay,simultaneous"
@@ -47,7 +49,8 @@
   "dependencies": {
     "debug": "^4.3.4",
     "express-end": "0.0.8",
-    "mini-queue": "0.0.14"
+    "mini-queue": "0.0.14",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "chai": "^4.3.6",
@@ -61,5 +64,6 @@
     "mocha": "^9.2.2",
     "mockery": "^2.1.0",
     "sinon": "^13.0.1"
-  }
+  },
+  "snyk": true
 }

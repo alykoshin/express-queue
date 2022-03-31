@@ -7,14 +7,14 @@
     "node": ">=6"
   },
   "scripts": {
-    "nsp": "nsp check",
-    "_deps-check": "npm-check-updates --error-level 2",
-    "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --error-level 1 && npm install",
+    "_npm-audit": "npm audit || echo '\n*** Please check warnings above ***\n' && npm audit --production --audit-level high && echo '\n*** npm audit reported no high-level vulnerabilities for production configuration ***\n' ",
+    "_deps-check": "npm-check-updates --errorLevel 2",
+    "_deps-update": "echo '* Updating packages versions... '; npm-check-updates -u --upgradeAll --errorLevel 1 && npm install",
     "_check-changes": "echo '* Checking if git directory is clean... '; bash -c '[[ -z $(git status -uno --porcelain) ]]'",
     "update-deps": "npm run _check-changes && npm run _deps-update && npm test && git commit -am 'updated deps'",
     "lint": "eslint -f unix .",
     "inspect": "jsinspect",
-    "pretest": "npm run lint && npm run inspect && npm run nsp && npm run _deps-check",
+    "pretest": "npm run lint && npm run inspect && npm run _npm-audit && npm run _deps-check",
     "__test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "test": "npm run _test",
     "_test": "echo \"Warning: no test specified\" && exit 0",
@@ -45,21 +45,21 @@
   },
   "homepage": "https://github.com/alykoshin/express-queue",
   "dependencies": {
-    "debug": "^3.1.0",
+    "debug": "^4.3.4",
     "express-end": "0.0.8",
     "mini-queue": "0.0.14"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.3.6",
     "chai-things": "^0.2.0",
-    "coveralls": "^3.0.0",
-    "eslint": "^4.17.0",
-    "express": "^4.16.2",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.12.0",
+    "express": "^4.17.3",
     "istanbul": "^0.4.5",
-    "jshint": "^2.9.5",
+    "jshint": "^2.13.4",
     "jsinspect": "^0.12.7",
-    "mocha": "^5.0.0",
+    "mocha": "^9.2.2",
     "mockery": "^2.1.0",
-    "sinon": "^4.2.2"
+    "sinon": "^13.0.1"
   }
 }

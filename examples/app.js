@@ -13,7 +13,7 @@ const httpPort = 8080;
 const app = express();
 
 // Using queue middleware
-const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 6 });
+const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 6, field:"userId" });
 app.use(queueMw);
 // May be also:
 // app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
@@ -26,16 +26,16 @@ let counter = 0;
 
 app.get('/test1', function (req, res) {
   let cnt = counter++; // local var inside the closure
-  console.log(`get(test1): [${cnt}/request] queueLength: ${queueMw.queue.getLength()}`);
+  console.log(`get(test1) ${req.query.userId}: [${cnt}/request] queueLength: ${queueMw.queue.getLength()}`);
 
   const result = { test: 'test' };
 
   setTimeout(function() {
-    console.log(`get(test1): [${cnt}/ready] queueLength: ${queueMw.queue.getLength()}` );
+    console.log(`get(test1) ${req.query.userId}: [${cnt}/ready] queueLength: ${queueMw.queue.getLength()}` );
     res
       .status(200)
       .send(result);
-    console.log(`get(test1): [${cnt}/sent] queueLength: ${queueMw.queue.getLength()}`);
+    console.log(`get(test1) ${req.query.userId}: [${cnt}/sent] queueLength: ${queueMw.queue.getLength()}`);
   }, RESPONSE_DELAY);
 
 });

@@ -13,7 +13,7 @@ const httpPort = 8080;
 const app = express();
 
 // Using queue middleware
-const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 6 });
+const queueMw = expressQueue({ activeLimit: 2, queuedLimit: 2, field:"userId" });
 app.use(queueMw);
 // May be also:
 // app.use(queue({ activeLimit: 2, queuedLimit: -1 }));
